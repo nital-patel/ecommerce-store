@@ -20,20 +20,31 @@ class ProductList extends Component {
         const productList = this.state.productList;
 
         return (
-            <div >
+            <div className="wrapper" >
                 {
                     productList.map((product) =>
                         (
-                            <div key={product.id}>
+                            <div className="content" key={product.id}>
+                                <div className="item">
+                                    <div className="shell">
+                                        <div className="header">
+                                    <h1 className="product-name">name: {productList.name}</h1>
+                                    <h1 className="product-price">price: {productList.price}</h1>
+                                            </div>
                                 <Link to={`/product/${product.id}`}><img className="img1" src={product.image}></img></Link>
-                                <Link to="/add to cart">Add to cart</Link>
+                                </div>
+
+                                    </div>
                             </div>
                         )
                     )
 
+
+
                 }
             </div>
+
         );
-    }s
+    }
 }
 export default ProductList;

@@ -1,6 +1,7 @@
 body {
-  margin: 0;
-  padding: 0;
+  margin: 0 auto;
   font-family: sans-serif;
-
+  width: 1140px;
+  min-height: 100vh;
+  display: block;
 }

@@ -26,17 +26,37 @@ class ProductData extends Component {
         const productData = this.state.productData;
 
         return (
-            <div key={productData.id}>
-                <p className="product-name">name: {productData.name}</p>
-                <img className="img-data" src={productData.image}></img>
+            <div className="wrapper">
+            <div className="content" key={productData.id}>
+                <div className="item">
+                    <div className="shell">
+                        <div className="header">
+                <p className="product-name"> {productData.name}</p>
                 <p className="product-price">price: {productData.price}</p>
-                <Link className="btn-add" to="/add to cart">Add to cart</Link>
-                <div className="desc">
-                <p className="product-data">{productData.description}</p>
-                </div>
+                        </div>
+                        <div>
+                        <img className="img-data" src={productData.image}></img>
+                        </div>
+                        <div className="right-col">
+
+
+                        <Link className="btn-add" to="/add to cart">Add to cart</Link>
+
+
+                        <p className="decs">{productData.description}</p>
+                        </div>
+                        </div>
+                    </div>
+
 
             </div>
+
+
+            </div>
+
+
         );
     }
 }
+
 export default ProductData;
