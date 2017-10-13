@@ -23,20 +23,33 @@ class ProductCart extends Component {
         const productCart = this.state.productCart;
 
         return (
+            <div className="wrapper">
 
-            <div key={productCart} className="order">
-                <div className="product_header">
+            <div  key={productCart} className="content">
+                <div className="item1">
+                    <div className="shell">
+                <div className="header">
                     <i className="fa fa-shopping-cart cart-icon" aria-hidden="true"></i>
-                    <a className="link-cart" href="#">Continue shopping</a>
-                    <img className="img-cart" src={productCart.image}></img>
-                    <p className="cart-price"> {productCart.price}</p>
-                    <p className="cart-name"> {productCart.name}</p>
+                    <a className="cart-list" href="#">Continue shopping</a>
+                </div>
+                        <div className="cart">
+                    <img className="img" src={productCart.image}></img>
+
+                    <p className="name"> {productCart.name}</p>
+
                 </div>
                 <div className="btn-cart">
-                    <button>Add</button>
-                    <button>Delete</button>
+
+                    <button className="add-btn">Add</button>
+                    <button className="del-btn">Delete</button>
                 </div>
-                <Link className="btn-add" to="/add to cart">Checkout</Link>
+
+                <Link  to="/checkout" className="btn-checkout">Checkout</Link>
+            </div>
+
+                </div>
+            </div>
+
             </div>
 
         );

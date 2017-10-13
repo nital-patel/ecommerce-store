@@ -175,10 +175,6 @@ footer {
   color: #ffffff;
   padding-top: 10px;
 }
-.btn-cart {
-  margin-top: 80px;
-
-}
 .cart {
   font-size: 30px;
 }
@@ -324,17 +320,24 @@ h2 {
   width: 277px;
 
 }
+.cart {
+  width: 620px;
+  position: relative;
+  float: left;
+  display: block;
+  border-radius: 5px;
+  margin: 0 20px 15px 0;
+  font-size: 12px;
+}
 .cart-list {
-  margin: auto;
-  width: 500px;
-  height: 500px;
-  margin-left: 700px;
-  margin-bottom: 1000px;
-  text-align: start;
+  float: right;
+  text-decoration: none;
+  color: black;
+  margin-top: 10px;
 }
 .cart-icon {
   font-size: 3em;
-  color: #ffffff;
+  color: #dddddd;
   float: left;
 }
 .img-cart {
@@ -344,6 +347,80 @@ h2 {
   margin-top: 70px;
   float: left;
   border-radius: 10px;
+}
+.img {
+  padding: 10px;
+  width: 140px;
+  float: left;
+
+}
+.name {
+  font-size: 15px;
+  margin: 0px;
+  padding: 0px;
+  font-weight: 400;
+  margin-top: 60px;
+
+}
+.btn-cart {
+  float: right;
+  position: relative;
+
+}
+.price {
+  float: left;
+  margin-top: 4px;
+}
+.add-btn {
+  float: left;
+  margin: 0px 5px;
+  width: 80px;
+  text-align: center;
+  height: 40px;
+}
+.item1 {
+  width: 700px;
+  background-color: #eaeaea;
+  position: relative;
+  float: left;
+  display: block;
+  border-radius: 5px;
+  margin: 0 20px 15px 0;
+  font-size: 12px;
+
+}
+.del-btn {
+  border-radius: 3px;
+  border: 1px solid #d4d4d4;
+  margin-right: 10px;
+  background-color: #f4f4f4;
+  background-image: linear-gradient(to bottom, #f4f4f4, #ececec);
+  font-size: 11px;
+  font-weight: bold;
+  display: inline-block;
+  padding: 3px 7px 1px;
+  width: 80px;
+  height: 40px;
+  background: #EC7063;
+  color: #ffffff;
+}
+.btn-checkout {
+  border-radius: 3px;
+  border: 1px solid #d4d4d4;
+  margin-right: 10px;
+  background-color: #f4f4f4;
+  background-image: linear-gradient(to bottom, #f4f4f4, #ececec);
+  font-size: 14px;
+  font-weight: bold;
+  display: inline-block;
+  padding: 3px 7px 1px;
+  width: 80px;
+  height: 40px;
+  background: #36b725;
+  color: #ffffff;
+  text-decoration: none;
+  float: right;
+  text-align: center;
 }
 .cart-name {
   font-size: 30px;
