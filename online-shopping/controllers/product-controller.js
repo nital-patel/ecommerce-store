@@ -1,9 +1,9 @@
-const fakeProducts = [];
+let fakeProducts = [];
 
 function dummyProducts() {
     const faker = require('faker').commerce;
     const lorem = require('faker').lorem;
-
+    fakeProducts = [];
     for (var i=0; i< 10; i++ ) {
         fakeProducts.push({
             name: faker.productName(),

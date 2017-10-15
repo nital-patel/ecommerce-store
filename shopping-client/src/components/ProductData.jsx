@@ -26,7 +26,7 @@ class ProductData extends Component {
         const productData = this.state.productData;
         return (
             <div className="wrapper">
-                <div className="content" key={productData.id}>
+                <div className="content">
                     <div className="item">
                         <div className="shell">
                             <div className="header">

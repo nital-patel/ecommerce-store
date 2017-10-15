@@ -2,6 +2,6 @@ body {
   margin: 0 auto;
   font-family: sans-serif;
   width: 1140px;
-  min-height: 100vh;
   display: block;
+  height: 100%;
 }

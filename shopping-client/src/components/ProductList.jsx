@@ -21,21 +21,19 @@ class ProductList extends Component {
         return (
             <div className="wrapper" >
                 {
-                    productList.map((product) =>
-                        (
-                            <div className="content" key={product.id}>
-                                <div className="item">
-                                    <div className="shell">
-                                        <div className="header">
-                                            <h1 className="product-name">name: {productList.name}</h1>
-                                            <h1 className="product-price">price: {productList.price}</h1>
-                                        </div>
-                                        <Link to={`/product/${product.id}`}><img className="img1" src={product.image}></img></Link>
+                    productList.map((product) =>  (
+                        <div className="content" key={product.id}>
+                            <div className="item">
+                                <div className="shell">
+                                    <div className="header">
+                                        <h1 className="product-name">{product.name}</h1>
+                                        <h1 className="product-price">{product.price}</h1>
                                     </div>
+                                    <Link to={`/product/${product.id}`}><img className="img1" src={product.image}></img></Link>
                                 </div>
                             </div>
-                        )
-                    )
+                        </div>
+                    ))
                 }
             </div>
         );

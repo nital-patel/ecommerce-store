@@ -1,11 +1,6 @@
 
-
 .App {
   text-align: center;
-}
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
 }
 .App-header {
   background-color: #222;
@@ -16,13 +11,8 @@
 .App-title {
   font-size: 1.5em;
 }
-
 .App-intro {
   font-size: large;
-}
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }
 .App {
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#87dcfa+0,b18ae0+100 */
@@ -60,7 +50,6 @@
   font-family: inconsolata, monospace;
 }
 .container .home h3:after {
-  content: '🍦🍦🍦';
   display: block;
   text-align: center;
   margin-top: 50px;
@@ -106,6 +95,7 @@ footer {
   margin-right: 50px;
   float: left;
   margin-left: 50px;
+  color: black;
 }
 .img-data {
   margin: 0 0 12px;
@@ -124,7 +114,6 @@ footer {
   color: #666;
   margin-top: 20px;
   font-weight: 300;
-
 }
  .btn-add {
    width: 100%;
@@ -183,33 +172,42 @@ footer {
   width: 700px;
   height: 700px;
   margin-left: 10px;
+  background: #dddddd;
 }
 .email {
   width: 90%;
-  padding: 15px;
+  height: 20px;
+  padding: 10px;
   border-radius: 5px;
   border: none;
+
 }
 .name {
-  padding: 15px;
+  padding: 10px;
   width: 40%;
+  height: 20px;
   margin: 20px;
   border-radius: 5px;
   border: none;
+  margin-top: 15px;
 }
 .add {
-  padding: 15px;
+  padding: 10px;
   width: 40%;
+  height: 20px;
   margin: 20px;
   border-radius: 5px;
   border: none;
+  margin-top: 15px;
 }
 .city {
-  padding: 15px;
+  padding: 10px;
   width: 90%;
+  height: 20px;
   margin: 20px;
   border-radius: 5px;
   border: none;
+  margin-top: 15px;
 }
 .County {
   padding: 15px;
@@ -352,6 +350,7 @@ h2 {
   padding: 10px;
   width: 140px;
   float: left;
+  border-radius: 15px;
 
 }
 .name {
