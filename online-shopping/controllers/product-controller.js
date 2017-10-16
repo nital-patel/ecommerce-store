@@ -1,8 +1,5 @@
 const Product = require('../models/product');
 
-let fakeProducts = [];
-
-
 module.exports =  {
     create: (req, res) => {
         Product.create({
@@ -37,11 +34,11 @@ module.exports =  {
 
 
     getProduct(req, res) {
-        if (fakeProducts.length === 0) {
-            dummyProducts();
-        }
-
-        const data = fakeProducts.find((el) => el.id == req.params.id) || {};
-        res.json(data);
+        Product.findOne(req.params.id)
+        .then(product => {
+            res.json(product);
+        });
     }
 };
+
+

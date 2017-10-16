@@ -21,7 +21,7 @@ Product.findAll = () => {
 };
 
 Product.findOne = (id) => {
-    return db.oneOrone(
+    return db.oneOrNone(
         `
         SELECT * FROM product WHERE id = $1
         `,
