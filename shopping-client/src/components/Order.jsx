@@ -33,17 +33,12 @@ class Order extends Component {
                     <div>
                         <input type="text"  className="num" placeholder="Phone" name="phone" value={this.state.phone} />
                     </div>
+                    <div>
                     <button className="btn">Continue to shipping method</button>
+                    </div>
 
                 </form>
-
-
-
-
             </div>
-
-
-
         );
     }
 }

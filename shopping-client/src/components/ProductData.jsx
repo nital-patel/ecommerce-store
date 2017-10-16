@@ -39,15 +39,20 @@ class ProductData extends Component {
                                 <p className="product-price">price: {productData.price}</p>
                             </div>
                             <div>
-                                <img className="img-data" src={productData.image}></img>
+                                <img className="img1" src={productData.image}></img>
                             </div>
-                            <div className="right-col">
-                                <button className="btn-add" onClick={this.addToCart}>Add to cart</button>
-                                <p className="decs">{productData.description}</p>
-                            </div>
+
+
                         </div>
                     </div>
+
                 </div>
+                <div>
+                    <button className="btn-add" onClick={this.addToCart}>Add to cart</button>
+
+
+                </div>
+                <p className="decs">{productData.description}</p>
             </div>
         );
     }

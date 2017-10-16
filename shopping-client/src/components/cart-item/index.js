@@ -26,13 +26,17 @@ class ProductCart extends Component {
 
         return (
             <div key={cartItem.id} className="cart">
+                <div>
+
                 <img className="img" src={cartItem.image}></img>
-                <p className="name"> {cartItem.name}</p>
-                <p>{'Price:' + cartItem.price * cartItem.qty}</p>
-                <p>{'Qty:' + cartItem.qty}</p>
+                    <p className="name1"> {cartItem.name}</p>
+
+            </div>
                 <div className="btn-cart">
+                    <p className="price">{'$' + cartItem.price * cartItem.qty}</p>
+                    <p className="qty">{'Qty:' + cartItem.qty}</p>
                     <button className="add-btn" onClick={this.addQty}>Add</button>
-                    <button className="del-btn" onClick={this.deleteQty}>Delete</button>
+                    <button className="del-btn" onClick={this.deleteQty}>Remove</button>
                 </div>
             </div>
 

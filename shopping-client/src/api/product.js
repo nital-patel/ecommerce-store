@@ -65,6 +65,10 @@ export default {
         return cart;
     },
     checkOut(orderFormData) {
-        // Make a call to checkout the cart
+        // Hardcode JSON
+
+        // POST Call using AXIOS
+
+        // Success Message
     }
 };

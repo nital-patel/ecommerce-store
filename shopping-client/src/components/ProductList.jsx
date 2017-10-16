@@ -27,7 +27,7 @@ class ProductList extends Component {
                                 <div className="shell">
                                     <div className="header">
                                         <h1 className="product-name">{product.name}</h1>
-                                        <h1 className="product-price">{product.price}</h1>
+                                        <p className="product-price">{product.price}</p>
                                     </div>
                                     <Link to={`/product/${product.id}`}><img className="img1" src={product.image}></img></Link>
                                 </div>
