@@ -13,7 +13,9 @@
   font-size: 18px;
   line-height: 1.4em;
 }
+.home-img {
 
+}
 /* title */
 .container {
   display: flex;
@@ -115,7 +117,7 @@ footer {
   top: 0;
   right: 0;
   font-size: 18px;
-  line-height: 40px;
+  line-height: 50px;
   padding-right: 10px;
   font-weight: 300;
   border-left: 1px solid #ddd;
@@ -154,6 +156,9 @@ footer {
   margin-right: 5px;
   cursor: pointer;
 }
+.cart-list:hover {
+  color: #36b725;
+}
 .price {
   margin-top: 4px;
   font-weight: 900;
@@ -163,6 +168,7 @@ footer {
 .qty {
   float: right;
   margin-top: 4px;
+  margin-right: 5px;
 }
 .add-btn {
   float: left;
@@ -170,6 +176,13 @@ footer {
   width: 80px;
   text-align: center;
   height: 40px;
+}
+.total {
+  font-size: 20px;
+  margin: 0 auto;
+  float: right;
+  margin-right: 10px;
+  margin-top: 10px;
 }
 .btn-checkout {
   text-align: center;
@@ -198,6 +211,7 @@ footer {
   font-size: 15px;
   font-weight: 400;
   margin: 0;
+  padding: 10px;
 }
 .btn-cart {
   float: right;
@@ -232,15 +246,8 @@ footer {
   padding: 10px;
   border-radius: 5px;
   border: none;
-}
-.name {
-  padding: 10px;
-  width: 40%;
-  height: 20px;
   margin: 20px;
-  border-radius: 5px;
-  border: none;
-  margin-top: 15px;
+  font-weight: 800;
 }
 .add {
   padding: 10px;
@@ -260,6 +267,7 @@ footer {
   border-radius: 5px;
   border: none;
   margin-top: 15px;
+  font-weight: 800;
 }
 .County {
   padding: 15px;
@@ -267,6 +275,7 @@ footer {
   margin: 20px;
   border-radius: 5px;
   border: none;
+  font-weight: 800;
 }
 .num {
   padding: 15px;
@@ -274,6 +283,7 @@ footer {
   margin: 20px;
   border-radius: 5px;
   border: none;
+  font-weight: 800;
 }
 .btn {
   width: 40%;
@@ -288,23 +298,30 @@ footer {
   border: none;
   margin: 20px;
 }
+h1 {
+  text-align: left;
+  margin-left: 10px;
+  border: none;
+
+}
 h2 {
   text-align: left;
   margin-left: 10px;
   border: none;
 }
 .cart {
-  width: 620px;
+  width: 700px;
   position: relative;
   float: left;
   display: block;
   border-radius: 5px;
   margin: 0 20px 15px 0;
   font-size: 12px;
+  border-bottom: 1px solid #BDBDBD;
 }
 .cart-icon {
   font-size: 3em;
-  color: #dddddd;
+  color: #9E9E9E;
   float: left;
 }
 .item1 {

@@ -1,7 +1,22 @@
 import axios from 'axios';
 
 const cart = [{"id":16,"name":"Octocat Mug","image":"https://cdn.shopify.com/s/files/1/0051/4802/products/mug-thumb_1024x1024.jpg?v=1371488151","qty":2,"price":14},{"id":17,"name":"Contribution Mug","image":"https://cdn.shopify.com/s/files/1/0051/4802/products/Contrib._Mug_thumb_1024x1024.jpg?v=1489593460","qty":1,"price":20},{"id":19,"name":"Atom Coasters","image":"https://cdn.shopify.com/s/files/1/0051/4802/products/coasters_1024x1024.jpg?v=1432017189","qty":1,"price":5}];
+const checkout = [
+    {
+        email: "patelprit@gmail.com",
+        first_name: "Prit",
+        last_name: "Patel",
+        address1: "54jhabfjhbj",
+        address2: "45bjvbdjlvb",
+        city: "surat",
+        state: "gujrat",
+        country: "india",
+        zipcode: 988988,
+        phone: 4789078474,
+        date: 2017/12/20
 
+            }
+            ];
 export default {
     getProducts() {
         return new Promise((resolve) => {
@@ -65,6 +80,15 @@ export default {
         return cart;
     },
     checkOut(orderFormData) {
+        const cart = checkout.find((cart) => {
+            return cart;
+
+        });
+        return new Promise((resolve) => {
+            setTimeout( () => {
+                resolve(cart);
+            }, 100)
+        });
         // Hardcode JSON
 
         // POST Call using AXIOS

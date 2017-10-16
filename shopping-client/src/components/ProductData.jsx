@@ -35,7 +35,7 @@ class ProductData extends Component {
                         <div className="shell">
                             <div className="header">
                                 <p className="product-name"> {productData.name}</p>
-                                <p className="product-price">price: {productData.price}</p>
+                                <p className="product-price">$ {productData.price}</p>
                             </div>
                             <div>
                                 <img className="img1" src={productData.image}></img>

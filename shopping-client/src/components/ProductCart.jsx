@@ -50,8 +50,9 @@ class ProductCart extends Component {
                                     )
                                 })
                             }
-                            <div>Total: ${total}</div>
                             <Link  to="/checkout" className="btn-checkout">Checkout</Link>
+                            <div className="total">Total: ${total}</div>
+
                         </div>
                     </div>
                 </div>

@@ -3,7 +3,7 @@ import React from 'react';
 const Home = () => {
     return (
         <div className="home">
-            <h1>shop the decal</h1>
+            <img className="home-img" src="https://smallbiztrends.com/wp-content/uploads/2016/04/converting-sites-850x476.jpg"></img>
         </div>
     );
 };

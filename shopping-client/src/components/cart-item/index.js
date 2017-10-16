@@ -28,8 +28,10 @@ class ProductCart extends Component {
             <div key={cartItem.id} className="cart">
                 <div>
 
+
                 <img className="img" src={cartItem.image}></img>
                     <p className="name1"> {cartItem.name}</p>
+
 
             </div>
                 <div className="btn-cart">
