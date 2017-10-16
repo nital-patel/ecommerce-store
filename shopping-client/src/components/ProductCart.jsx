@@ -6,13 +6,11 @@ class ProductCart extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            productCart: {}
+            productCart: []
         };
 
         productApi.getCart()
             .then((productCart)=> {
-
-                console.log(productCart);
                 this.setState({
                     productCart: productCart
                 });
@@ -22,36 +20,43 @@ class ProductCart extends Component {
     render() {
         const productCart = this.state.productCart;
 
+        const total = productCart.reduce((total, currentValue) => {
+            return total + currentValue.price * currentValue.qty;
+        }, 0);
+
         return (
             <div className="wrapper">
+                <div   className="content">
+                    <div className="item1">
+                        <div className="shell">
+                            <div className="header">
+                                <i className="fa fa-shopping-cart cart-icon" aria-hidden="true"></i>
+                                <a className="cart-list" href="#">Continue shopping</a>
+                            </div>
+                            {
+                                productCart.map((cartItem) => {
+                                    return (
+                                        <div key={cartItem.id} className="cart">
+                                            <img className="img" src={cartItem.image}></img>
+                                            <p className="name"> {cartItem.name}</p>
+                                            <p>{'Price:' + cartItem.price * cartItem.qty}</p>
+                                            <p>{'Qty:' + cartItem.qty}</p>
+                                            <div className="btn-cart">
+                                                <button className="add-btn">Add</button>
+                                                <button className="del-btn">Delete</button>
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            }
 
-            <div  key={productCart} className="content">
-                <div className="item1">
-                    <div className="shell">
-                <div className="header">
-                    <i className="fa fa-shopping-cart cart-icon" aria-hidden="true"></i>
-                    <a className="cart-list" href="#">Continue shopping</a>
+                            <div>Total: ${total}</div>
+
+                            <Link  to="/checkout" className="btn-checkout">Checkout</Link>
+                        </div>
+                    </div>
                 </div>
-                        <div className="cart">
-                    <img className="img" src={productCart.image}></img>
-
-                    <p className="name"> {productCart.name}</p>
-
-                </div>
-                <div className="btn-cart">
-
-                    <button className="add-btn">Add</button>
-                    <button className="del-btn">Delete</button>
-                </div>
-
-                <Link  to="/checkout" className="btn-checkout">Checkout</Link>
             </div>
-
-                </div>
-            </div>
-
-            </div>
-
         );
     }
 }

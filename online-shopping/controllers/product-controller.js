@@ -33,6 +33,7 @@ module.exports =  {
     },
 
 
+
     getProduct(req, res) {
         Product.findOne(req.params.id)
         .then(product => {

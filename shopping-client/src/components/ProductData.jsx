@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import productApi from '../api/product';
-import { Link } from 'react-router-dom';
 
 class ProductData extends Component {
     constructor(props) {
@@ -12,6 +11,8 @@ class ProductData extends Component {
             productData: {}
         };
 
+        this.addToCart = this.addToCart.bind(this);
+
         productApi.getProduct(props.match.params.id)
             .then((productData)=> {
 
@@ -20,6 +21,10 @@ class ProductData extends Component {
                     productData: productData
                 });
             })
+    }
+
+    addToCart () {
+        productApi.addToCart(this.state.productData);
     }
 
     render() {
@@ -37,7 +42,7 @@ class ProductData extends Component {
                                 <img className="img-data" src={productData.image}></img>
                             </div>
                             <div className="right-col">
-                                <Link className="btn-add" to="/add to cart">Add to cart</Link>
+                                <button className="btn-add" onClick={this.addToCart}>Add to cart</button>
                                 <p className="decs">{productData.description}</p>
                             </div>
                         </div>

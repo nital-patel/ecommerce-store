@@ -15,8 +15,8 @@ class Order extends Component {
                     </div>
                         <h2>Shipping address</h2>
                     <div>
-                        <input type="text" className="name" placeholder="First name" name="firstname" value={this.state.firstname} />
-                        <input type="text" className="name" placeholder="Last name" name="lastname" value={this.state.lastname} />
+                        <input type="text" className="add" placeholder="First name" name="firstname" value={this.state.firstname} />
+                        <input type="text" className="add" placeholder="Last name" name="lastname" value={this.state.lastname} />
                     </div>
                     <div>
                         <input type="text" className="add" placeholder="Address" name="address" value={this.state.address} />

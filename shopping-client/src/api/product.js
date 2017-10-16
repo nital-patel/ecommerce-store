@@ -1,21 +1,6 @@
 import axios from 'axios';
 
-const dummyCart = [
-
-    {
-        image: "https://gloimg.gbtcdn.com/gb/pdm-product-pic/Electronic/2017/02/25/goods-img/1498125691181740179.jpg",
-        id: 3,
-        price: 250,
-        name: "Laptop Bag"
-    },
-    {
-        image: "http://demo.ajax-cart.com/photos/product/4/176/4.jpg",
-        id: 2,
-        price: 100,
-        name: "Laptop Bag"
-    }
-
-];
+const cart = [{"id":16,"name":"Octocat Mug","image":"https://cdn.shopify.com/s/files/1/0051/4802/products/mug-thumb_1024x1024.jpg?v=1371488151","qty":2,"price":14},{"id":17,"name":"Contribution Mug","image":"https://cdn.shopify.com/s/files/1/0051/4802/products/Contrib._Mug_thumb_1024x1024.jpg?v=1489593460","qty":1,"price":20},{"id":19,"name":"Atom Coasters","image":"https://cdn.shopify.com/s/files/1/0051/4802/products/coasters_1024x1024.jpg?v=1432017189","qty":1,"price":5}];
 
 export default {
     getProducts() {
@@ -35,25 +20,30 @@ export default {
         });
     },
     addToCart(product) {
+        let matchingItem;
+        matchingItem = cart.find((item) => {
+            return item.id == product.id;
+        });
+        if (matchingItem) {
+            matchingItem.qty += 1;
+        } else {
+            cart.push({
+                id: product.id,
+                name: product.name,
+                image: product.image,
+                qty: 1,
+                price: product.price
+            });
+        }
 
-
-
+        console.log(cart);
     },
     getCart() {
-        const cart = dummyCart.find((cart) => {
-            return cart;
-
-        });
         return new Promise((resolve) => {
             setTimeout(() => {
                 resolve(cart);
-
             }, 100)
         });
-
-
-
-
     } ,
     checkOut(orderFormData) {
         // Make a call to checkout the cart

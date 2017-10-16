@@ -9,7 +9,6 @@ import {
 import Header from './components/header/Header';
 import Footer from './components/Footer';
 import Home from './components/Home';
-import Product from './components/Product';
 import ProductList from './components/ProductList';
 import ProductCart from './components/ProductCart';
 import Order from './components/Order';
@@ -23,7 +22,6 @@ class App extends Component {
                     <Header />
                     <div className="container">
                         <Route exact path="/" component={Home} />
-                        {/*<Route exact path="/" component={Product} />*/}
                         <Route exact path='/product' component={ProductList} />
                         <Route exacr path='/cart' component={ProductCart} />
                         <Route exact path='/checkout' component={Order} />
