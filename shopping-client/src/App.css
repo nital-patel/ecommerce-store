@@ -13,9 +13,7 @@
   font-size: 18px;
   line-height: 1.4em;
 }
-.home-img {
 
-}
 /* title */
 .container {
   display: flex;
@@ -169,6 +167,7 @@ footer {
   float: right;
   margin-top: 4px;
   margin-right: 5px;
+  font-size: 15px;
 }
 .add-btn {
   float: left;
@@ -176,6 +175,10 @@ footer {
   width: 80px;
   text-align: center;
   height: 40px;
+  color: #29B6F6;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
 }
 .total {
   font-size: 20px;
@@ -197,7 +200,7 @@ footer {
   background-color: #36b725;
   text-decoration: none;
   float: right;
-  margin-right: 20px;
+  margin-right: 5px;
   margin-bottom: 10px;
   font-weight: 700;
 }
@@ -217,13 +220,10 @@ footer {
   float: right;
   margin: 0px;
 }
-.del-btn {s
-  border-radius: 3px;
+.del-btn {
   border: 1px solid #d4d4d4;
   margin-right: 10px;
-  background-color: #f4f4f4;
-  background-image: linear-gradient(to bottom, #f4f4f4, #ececec);
-  font-size: 11px;
+  font-size: 15px;
   font-weight: bold;
   display: inline-block;
   padding: 3px 7px 1px;
@@ -231,6 +231,8 @@ footer {
   height: 40px;
   background: #EC7063;
   color: #ffffff;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 /* order.jsx */
