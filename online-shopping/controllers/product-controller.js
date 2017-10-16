@@ -2,25 +2,13 @@ const Product = require('../models/product');
 
 let fakeProducts = [];
 
-function dummyProducts() {
-    const faker = require('faker').commerce;
-    const lorem = require('faker').lorem;
-    fakeProducts = [];
-    for (var i=0; i< 10; i++ ) {
-        fakeProducts.push({
-            name: faker.productName(),
-            price: faker.price(),
-            image: 'https://cdn.shopify.com/s/files/1/0051/4802/products/github_mug_stickers-53_1024x1024.jpg?v=1489593460',
-            id: i + 1001
-        });
-    }
-}
 
 module.exports =  {
     create: (req, res) => {
         Product.create({
             name: req.body.name,
             price: req.body.price,
+            description: req.body.price,
             image: req.body.image
         })
         .then(product => {
@@ -36,9 +24,18 @@ module.exports =  {
         });
     },
     getProducts(req, res) {
-        dummyProducts();
-        res.json(fakeProducts);
+        Product.findAll(req.params.id)
+            .then(product => {
+                res.json (product)
+
+            })
+            .catch(err => {
+                console.log(err);
+                res.status(500).json({err});
+            });
     },
+
+
     getProduct(req, res) {
         if (fakeProducts.length === 0) {
             dummyProducts();
