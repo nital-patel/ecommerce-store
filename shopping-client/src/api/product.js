@@ -22,7 +22,7 @@ export default {
     addToCart(product) {
         let matchingItem;
         matchingItem = cart.find((item) => {
-            return item.id == product.id;
+            return item.id === product.id;
         });
         if (matchingItem) {
             matchingItem.qty += 1;
@@ -35,8 +35,10 @@ export default {
                 price: product.price
             });
         }
-
-        console.log(cart);
+        window.applicationHistory.push({
+            pathname: "/cart",
+            state: {}
+        });
     },
     getCart() {
         return new Promise((resolve) => {
@@ -44,7 +46,24 @@ export default {
                 resolve(cart);
             }, 100)
         });
-    } ,
+    },
+    updateCart(id, qty){
+        let matchingItem;
+        const matchingIndex = cart.findIndex((item) => {
+            return item.id === id;
+        });
+
+        matchingItem = cart[matchingIndex];
+
+        if (matchingItem) {
+            matchingItem.qty += qty;
+        }
+
+        if (matchingItem.qty === 0) {
+            cart.splice(matchingIndex, 1)[0];
+        }
+        return cart;
+    },
     checkOut(orderFormData) {
         // Make a call to checkout the cart
     }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import productApi from '../api/product';
+import CartItem from './cart-item';
 
 class ProductCart extends Component {
     constructor(props) {
@@ -9,12 +10,21 @@ class ProductCart extends Component {
             productCart: []
         };
 
+        this.updateCart = this.updateCart.bind(this);
+
         productApi.getCart()
             .then((productCart)=> {
                 this.setState({
                     productCart: productCart
                 });
             })
+    }
+
+    updateCart(id, qty) {
+        const cart = productApi.updateCart(id, qty);
+        this.setState({
+            productCart: cart
+        });
     }
 
     render() {
@@ -31,27 +41,16 @@ class ProductCart extends Component {
                         <div className="shell">
                             <div className="header">
                                 <i className="fa fa-shopping-cart cart-icon" aria-hidden="true"></i>
-                                <a className="cart-list" href="#">Continue shopping</a>
+                                <Link className="cart-list" to="/product">Continue shopping</Link>
                             </div>
                             {
                                 productCart.map((cartItem) => {
                                     return (
-                                        <div key={cartItem.id} className="cart">
-                                            <img className="img" src={cartItem.image}></img>
-                                            <p className="name"> {cartItem.name}</p>
-                                            <p>{'Price:' + cartItem.price * cartItem.qty}</p>
-                                            <p>{'Qty:' + cartItem.qty}</p>
-                                            <div className="btn-cart">
-                                                <button className="add-btn">Add</button>
-                                                <button className="del-btn">Delete</button>
-                                            </div>
-                                        </div>
+                                        <CartItem key={cartItem.id} item={cartItem} updateCart={this.updateCart}></CartItem>
                                     )
                                 })
                             }
-
                             <div>Total: ${total}</div>
-
                             <Link  to="/checkout" className="btn-checkout">Checkout</Link>
                         </div>
                     </div>

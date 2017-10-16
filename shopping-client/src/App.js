@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import {
-    BrowserRouter as Router,
+    Router as Router,
     Route
 } from 'react-router-dom';
 
@@ -14,10 +14,15 @@ import ProductCart from './components/ProductCart';
 import Order from './components/Order';
 import  ProductData from './components/ProductData';
 
+import createBrowserHistory from 'history/createBrowserHistory'
+
+const history = createBrowserHistory();
+window.applicationHistory = history;
+
 class App extends Component {
     render() {
         return (
-            <Router>
+            <Router history={history}>
                 <div className="App">
                     <Header />
                     <div className="container">
