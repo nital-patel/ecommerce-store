@@ -26,7 +26,6 @@ class ProductData extends Component {
     addToCart () {
         productApi.addToCart(this.state.productData);
     }
-
     render() {
         const productData = this.state.productData;
         return (
@@ -41,16 +40,11 @@ class ProductData extends Component {
                             <div>
                                 <img className="img1" src={productData.image}></img>
                             </div>
-
-
                         </div>
                     </div>
-
                 </div>
                 <div>
                     <button className="btn-add" onClick={this.addToCart}>Add to cart</button>
-
-
                 </div>
                 <p className="decs">{productData.description}</p>
             </div>
