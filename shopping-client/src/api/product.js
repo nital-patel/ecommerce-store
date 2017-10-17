@@ -80,6 +80,9 @@ export default {
         return cart;
 
     },
+    userProfile() {
+        return axios.get('http://localhost:3001/me', {withCredentials: true});
+    },
     checkOut(orderFormData) {
         const cart = checkout.find((cart) => {
             return cart;

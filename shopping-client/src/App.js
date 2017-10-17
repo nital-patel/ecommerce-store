@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-
+import api from './api/product';
 import {
     Router as Router,
     Route
@@ -20,11 +20,31 @@ const history = createBrowserHistory();
 window.applicationHistory = history;
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            user: null
+        };
+
+        api.userProfile()
+            .then((res) => {
+                console.log(res.data[0]);
+                this.setState({
+                    user: res.data[0]
+                })
+            })
+            .catch((err) => {
+                this.setState({
+                    user: false
+                });
+            });
+    }
     render() {
         return (
             <Router history={history}>
                 <div className="App">
-                    <Header />
+                    <Header user={this.state.user}/>
                     <div className="container">
                         <Route exact path="/" component={Home} />
                         <Route exact path='/product' component={ProductList} />

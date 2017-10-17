@@ -7,9 +7,10 @@ const app = express();
 const passportConfig = require('./config/passport');
 
 var allowCrossDomain = function(req, res, next) {
-    res.header('Access-Control-Allow-Origin', "*");
+    res.header('Access-Control-Allow-Origin', "http://localhost:3000");
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
+    res.header('Access-Control-Allow-Credentials', 'true');
     next();
 };
 
@@ -31,24 +32,31 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.get('/auth/google',
-    passport.authenticate('google', { scope: ['profile', 'email'] }));
+    passport.authenticate('google', { scope: ['profile', 'email'] })
+);
 
 app.get('/auth/google/callback',
-    passport.authenticate('google', { scope: ['profile', 'email'], failureRedirect: '/login' }),
+    passport.authenticate('google', { scope: ['profile', 'email']}),
     function(req, res) {
         // Successful authentication, redirect home.
-        res.redirect('/me');
-    });
+        res.redirect('http://localhost:3000');
+    }
+);
 
 app.get('/me',
     (req, res) => {
-        res.json(req.user);
+        if (req.user) {
+            res.json(req.user);
+        } else {
+            res.status(401).json({message: 'not authorized'});
+        }
+
     }
 );
 
 const productRoutes = require('./routes/product-routes');
 
-app.use('/product', passport.authenticate('google', { failureRedirect: '/login' }), productRoutes);
+app.use('/product', productRoutes);
 
 app.use('*', (req, res) => {
     res.status(400).json({
