@@ -12,7 +12,6 @@ module.exports =  {
             res.json({
                 message: 'ok',
                 data: product,
-
             });
         })
         .catch(err => {
@@ -31,9 +30,6 @@ module.exports =  {
                 res.status(500).json({err});
             });
     },
-
-
-
     getProduct(req, res) {
         Product.findOne(req.params.id)
         .then(product => {

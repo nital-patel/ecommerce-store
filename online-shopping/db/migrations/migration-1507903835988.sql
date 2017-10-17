@@ -21,3 +21,8 @@ CREATE TABLE IF NOT EXISTS checkout (
     phone VARCHAR(10),
     date DATE
 );
+
+CREATE TABLE IF NOT EXISTS users (
+    id VARCHAR(50),
+    name VARCHAR(300)
+);

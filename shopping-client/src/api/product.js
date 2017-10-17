@@ -78,6 +78,7 @@ export default {
             cart.splice(matchingIndex, 1)[0];
         }
         return cart;
+
     },
     checkOut(orderFormData) {
         const cart = checkout.find((cart) => {
