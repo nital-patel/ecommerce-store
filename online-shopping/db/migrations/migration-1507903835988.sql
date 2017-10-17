@@ -26,3 +26,10 @@ CREATE TABLE IF NOT EXISTS users (
     id VARCHAR(50),
     name VARCHAR(300)
 );
+CREATE TABLE IF NOT EXISTS user_product_order (
+    user_id SERIAL PRIMARY KEY,
+    product_id int,
+    order_id int,
+    qty int
+
+);
