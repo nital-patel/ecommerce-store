@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS product (
   image VARCHAR(255)
 );
 
-CREATE TABLE IF NOT EXISTS checkout (
+CREATE TABLE IF NOT EXISTS orders (
     id SERIAL PRIMARY KEY,
     email VARCHAR(50),
     first_name VARCHAR(50),
@@ -23,13 +23,14 @@ CREATE TABLE IF NOT EXISTS checkout (
 );
 
 CREATE TABLE IF NOT EXISTS users (
-    id VARCHAR(50),
+    id VARCHAR(50) PRIMARY KEY,
     name VARCHAR(300)
 );
-CREATE TABLE IF NOT EXISTS user_product_order (
-    user_id SERIAL PRIMARY KEY,
-    product_id int,
-    order_id int,
-    qty int
 
+CREATE TABLE IF NOT EXISTS user_product_order (
+    user_id VARCHAR(50) REFERENCES users (id) ON DELETE CASCADE,
+    product_id int REFERENCES product (id) ON DELETE CASCADE,
+    order_id int REFERENCES orders (id) ON DELETE CASCADE,
+    qty int,
+    PRIMARY KEY (user_id, product_id, order_id)
 );

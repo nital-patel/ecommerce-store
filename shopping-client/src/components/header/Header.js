@@ -22,7 +22,7 @@ class Header extends Component {
 
                     <Link to='/product'>Product</Link>
                     <Link to='/cart'>Cart</Link>
-                    <Link to='/register'></Link>
+                    <Link to='/logout'>Logout</Link>
                 </nav>
             </header>
         );

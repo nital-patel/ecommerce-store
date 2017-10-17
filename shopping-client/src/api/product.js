@@ -1,6 +1,7 @@
 import axios from 'axios';
+axios.defaults.withCredentials = true;
+const cart = [];
 
-const cart = [{"id":16,"name":"Octocat Mug","image":"https://cdn.shopify.com/s/files/1/0051/4802/products/mug-thumb_1024x1024.jpg?v=1371488151","qty":2,"price":14},{"id":17,"name":"Contribution Mug","image":"https://cdn.shopify.com/s/files/1/0051/4802/products/Contrib._Mug_thumb_1024x1024.jpg?v=1489593460","qty":1,"price":20},{"id":19,"name":"Atom Coasters","image":"https://cdn.shopify.com/s/files/1/0051/4802/products/coasters_1024x1024.jpg?v=1432017189","qty":1,"price":5}];
 const checkout = [
     {
         email: "patelprit@gmail.com",
@@ -15,20 +16,20 @@ const checkout = [
         phone: 4789078474,
         date: 2017/12/20
 
-            }
-            ];
+    }
+];
 export default {
     getProducts() {
         return new Promise((resolve) => {
-            axios.get('http://localhost:3001/product')
+            axios.get('http://localhost:3001/product', {withCredentials: true})
                 .then((response) => {
                     resolve(response.data);
-            });
+                });
         });
     },
     getProduct(id){
         return new Promise((resolve) => {
-            axios.get('http://localhost:3001/product/' + id)
+            axios.get('http://localhost:3001/product/' + id, {withCredentials: true})
                 .then((response) => {
                     resolve(response.data);
                 });
@@ -80,23 +81,24 @@ export default {
         return cart;
 
     },
+
     userProfile() {
         return axios.get('http://localhost:3001/me', {withCredentials: true});
     },
-    checkOut(orderFormData) {
-        const cart = checkout.find((cart) => {
-            return cart;
 
-        });
-        return new Promise((resolve) => {
-            setTimeout( () => {
-                resolve(cart);
-            }, 100)
-        });
-        // Hardcode JSON
-
-        // POST Call using AXIOS
-
-        // Success Message
+    checkOut(orderForm) {
+        const orderDetails = {
+            ...orderForm,
+            cart: cart
+        };
+        return axios.post('http://localhost:3001/product/checkout', orderDetails, {
+            withCredentials: true
+        })
+        .then(() => {
+            window.applicationHistory.push({
+                pathname: "/product",
+                state: {}
+            });
+        })
     }
 };

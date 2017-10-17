@@ -5,16 +5,22 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const app = express();
 const passportConfig = require('./config/passport');
+const cors = require('cors');
+// var allowCrossDomain = function(req, res, next) {
+//     res.header('Access-Control-Allow-Origin', "http://localhost:3000");
+//     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+//     res.header('Allow', 'GET,PUT,POST,DELETE,OPTIONS');
+//     res.header('Access-Control-Allow-Headers', 'origin, x-requested-with, content-type');
+//     res.header('Access-Control-Allow-Credentials', 'true');
+//     next();
+// };
 
-var allowCrossDomain = function(req, res, next) {
-    res.header('Access-Control-Allow-Origin', "http://localhost:3000");
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
-    res.header('Access-Control-Allow-Credentials', 'true');
-    next();
-};
-
-app.use(allowCrossDomain);
+app.use(cors({
+    methods: 'GET,PUT,POST,OPTIONS',
+    origin: true,
+    credentials: true
+}));
+app.options('*', cors());
 // app.use(logger('dev'));
 app.use(express.static('public'));
 app.use(bodyParser.json());

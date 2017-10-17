@@ -35,6 +35,17 @@ module.exports =  {
         .then(product => {
             res.json(product);
         });
+    },
+    checkout(req, res) {
+        Product.order(req.body)
+            .then((order) => {
+                Product.insertOrderDetails(req.body.cart, order, req.user)
+                    .then(() => {
+                        res.json({
+                            message: 'success'
+                        });
+                    })
+            })
     }
 };
 
