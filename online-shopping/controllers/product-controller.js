@@ -39,7 +39,7 @@ module.exports =  {
     checkout(req, res) {
         Product.order(req.body)
             .then((order) => {
-                Product.insertOrderDetails(req.body.cart, order, req.user)
+                Product.insertOrderDetails(req.body.cart, order, req.body.user)
                     .then(() => {
                         res.json({
                             message: 'success'
